@@ -378,6 +378,10 @@ func (a denyingAuthorizer) ValidateModelAccess(_ context.Context, selector core.
 	return nil
 }
 
+func (denyingAuthorizer) ValidateProviderAccess(context.Context, string) error {
+	return nil
+}
+
 func (a denyingAuthorizer) AllowsModel(_ context.Context, selector core.ModelSelector) bool {
 	return !a[selector.QualifiedModel()]
 }
